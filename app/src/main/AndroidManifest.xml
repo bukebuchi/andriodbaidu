@@ -4,9 +4,9 @@
           android:versionCode="3"
           android:versionName="3.0">
 
-    <uses-sdk
-            android:minSdkVersion="11"
-            android:targetSdkVersion="23"/>
+    <!--<uses-sdk-->
+            <!--android:minSdkVersion="11"-->
+            <!--android:targetSdkVersion="23"/>-->
 
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -34,7 +34,7 @@
 
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
-                android:value="HZBH7naHfZYxzBVaZKVY0tTXNXSkimQB"/>
+                android:value="d81GYga1CLpIjkwv8CzYHBPUih4bSrdP"/>
 
         <meta-data android:name="android.max_aspect"
             android:value="2.1"/>
