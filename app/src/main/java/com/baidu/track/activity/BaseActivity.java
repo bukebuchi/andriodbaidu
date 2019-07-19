@@ -22,6 +22,7 @@ public abstract class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         ViewUtil.initSystemBar(this, R.color.system_bar_bg);
         setContentView(getContentViewId());
+        ButterKnife.bind(this);
 
     }
 

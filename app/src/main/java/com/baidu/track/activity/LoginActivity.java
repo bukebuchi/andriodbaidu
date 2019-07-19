@@ -87,8 +87,8 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+        //setContentView(R.layout.activity_login);
+       // ButterKnife.bind(this);
         //showToast(String.valueOf(R.id.tv_login_pwd));
         //mLoadingDialog = new LoadingDialog(this, R.style.LoadingDialog, "登录中...");
         //initView();
