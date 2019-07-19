@@ -13,6 +13,8 @@ import com.baidu.track.R;
 import com.baidu.track.utils.ToastUtils;
 import com.baidu.track.utils.ViewUtil;
 
+import butterknife.ButterKnife;
+
 public abstract class BaseActivity extends Activity {
 
     @Override
@@ -20,6 +22,7 @@ public abstract class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         ViewUtil.initSystemBar(this, R.color.system_bar_bg);
         setContentView(getContentViewId());
+
     }
 
     /**

@@ -35,6 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
@@ -87,8 +88,10 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
+        //showToast(String.valueOf(R.id.tv_login_pwd));
         //mLoadingDialog = new LoadingDialog(this, R.style.LoadingDialog, "登录中...");
-        initView();
+        //initView();
         //initAnimation();
     }
 
@@ -150,7 +153,7 @@ public class LoginActivity extends BaseActivity {
         mPhoneNum = mEtPhone.getText().toString();
         mPwd = mEtPwd.getText().toString();
         mCode = mEtCode.getText().toString();
-        showToast("login");
+//        showToast("login");
         if (TextUtils.isEmpty(mPhoneNum)) {
             showToast(getString(R.string.et_input_phone));
             return;
@@ -247,12 +250,12 @@ public class LoginActivity extends BaseActivity {
                         int mCode = response.getCode();
                         if (mCode == 1) {
                             //存储用户手机号码
-                            showToast("成功登录");
+                           // showToast("成功登录");
                          BaseInfoSPUtil.getInstance().setUserPhoneNum(LoginActivity.this, mPhoneNum);
 //                            //登录凭证
                          String token =  response.getData().getUserinfo().getToken();
 //                            String token = response.getResult().getToken().getToken();
-                         showToast(token);
+                        // showToast(token);
 //                            //存储用户登录凭证
                          BaseInfoSPUtil.getInstance().setLoginToken(LoginActivity.this, token);
                           openActivity(MainActivity.class);
