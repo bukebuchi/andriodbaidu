@@ -1,4 +1,4 @@
-package com.wind.carmanager.utils;
+package com.baidu.track.utils;
 
 import android.content.Context;
 

@@ -1,8 +1,8 @@
-package com.wind.carmanager.okhttp.builder;
+package com.baidu.track.okhttp.builder;
 
-import com.wind.carmanager.okhttp.OkHttpUtils;
-import com.wind.carmanager.okhttp.request.OtherRequest;
-import com.wind.carmanager.okhttp.request.RequestCall;
+import com.baidu.track.okhttp.OkHttpUtils;
+import com.baidu.track.okhttp.request.OtherRequest;
+import com.baidu.track.okhttp.request.RequestCall;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.wind.carmanager.utils;
+package com.baidu.track.utils;
 
 /**
  * 检查用户输入数据工具类

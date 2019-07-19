@@ -1,9 +1,9 @@
-package com.wind.carmanager.utils;
+package com.baidu.track.utils;
 
 
 import android.widget.Toast;
 
-import com.wind.carmanager.MyApplication;
+import com.baidu.track.TrackApplication;
 
 /**
  * Created by lw on 2016/6/20.
@@ -25,7 +25,7 @@ public class ToastUtils {
      */
     public static void showToast(String message){
         if(toast == null){
-            toast = Toast.makeText(MyApplication.getInstance(), message, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(TrackApplication.getInstance(), message, Toast.LENGTH_SHORT);
             toast.show() ;
             oneTime = System.currentTimeMillis() ;
         }else{

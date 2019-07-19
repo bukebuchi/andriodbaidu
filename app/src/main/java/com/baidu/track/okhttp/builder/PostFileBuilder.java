@@ -1,7 +1,8 @@
-package com.wind.carmanager.okhttp.builder;
+package com.baidu.track.okhttp.builder;
 
-import com.wind.carmanager.okhttp.request.PostFileRequest;
-import com.wind.carmanager.okhttp.request.RequestCall;
+import com.baidu.track.okhttp.request.PostFileRequest;
+import com.baidu.track.okhttp.request.RequestCall;
+
 import java.io.File;
 
 import okhttp3.MediaType;

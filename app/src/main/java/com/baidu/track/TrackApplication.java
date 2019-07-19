@@ -98,7 +98,11 @@ public class TrackApplication extends Application {
     public static int screenWidth = 0;
 
     public static int screenHeight = 0;
+    private static TrackApplication mInstance;
 
+    public static TrackApplication getInstance() {
+        return mInstance;
+    }
     @Override
     public void onCreate() {
         super.onCreate();

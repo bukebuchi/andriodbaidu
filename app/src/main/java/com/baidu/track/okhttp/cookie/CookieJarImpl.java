@@ -1,8 +1,8 @@
-package com.wind.carmanager.okhttp.cookie;
+package com.baidu.track.okhttp.cookie;
 
 
-import com.wind.carmanager.okhttp.cookie.store.CookieStore;
-import com.wind.carmanager.okhttp.utils.Exceptions;
+import com.baidu.track.okhttp.cookie.store.CookieStore;
+import com.baidu.track.okhttp.utils.Exceptions;
 
 import java.util.List;
 

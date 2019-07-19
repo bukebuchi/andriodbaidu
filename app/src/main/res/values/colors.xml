@@ -37,4 +37,16 @@
 
     <!-- 对话框标题颜色 -->
     <color name="dialog_title">#323232</color>
+    <color name="colorLoginEditText">#C7C7C7</color>
+    <color name="color_tab_bottom_text_unselected">#707075</color>
+    <color name="color_tab_bottom_text_selected">#1576ab</color>
+    <color name="tab_text_dark_line">#2E2D34</color>
+    <color name="tab_bg">#f8f8f8</color>
+    <color name="color_view_line">#05B0FF</color>
+    <color name="txt_login_hint">#ababac</color>
+    <color name="btn_bg_color">#05bbff</color>
+    <color name="txt_account_hint">#79797a</color>
+
+    <color name="colorCirclebg">#100000ff</color>
+    <color name="colorDescbText">#818183</color>
 </resources>

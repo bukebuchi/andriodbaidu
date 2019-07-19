@@ -34,7 +34,7 @@
 
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
-                android:value="d81GYga1CLpIjkwv8CzYHBPUih4bSrdP"/>
+                android:value="RIsVIkGtmfWMFr0fELxkcSoDHuI2NngM"/>
 
         <meta-data android:name="android.max_aspect"
             android:value="2.1"/>
@@ -49,6 +49,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- 登录界面 -->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
         <activity android:name=".activity.MainActivity"
                   android:screenOrientation="portrait"/>
         <activity android:name=".activity.TracingActivity"

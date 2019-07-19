@@ -1,4 +1,4 @@
-package com.wind.carmanager.okhttp.service;
+package com.baidu.track.okhttp.service;
 
 /**
  * 作者：Created by luow on 2018/7/25

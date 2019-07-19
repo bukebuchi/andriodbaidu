@@ -1,12 +1,16 @@
 package com.baidu.track.activity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baidu.track.R;
+import com.baidu.track.utils.ToastUtils;
 import com.baidu.track.utils.ViewUtil;
 
 public abstract class BaseActivity extends Activity {
@@ -53,7 +57,33 @@ public abstract class BaseActivity extends Activity {
         LinearLayout optionsButton = (LinearLayout) layout.findViewById(R.id.btn_activity_options);
         optionsButton.setVisibility(View.INVISIBLE);
     }
+    /**
+     * 隐藏输入法
+     */
+    public boolean hideInputMethod() {
+        try {
+            if (null != this.getCurrentFocus()) {
+                InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                return im.hideSoftInputFromWindow(this.getCurrentFocus().getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
+    public void showToast(String msg) {
+        ToastUtils.showToast(msg);
+    }
+
+    /**
+     * 打开activity,无参
+     */
+    public void openActivity(Class<? extends Activity> cls) {
+        Intent intent = new Intent(BaseActivity.this, cls);
+        startActivity(intent);
+        overridePendingTransition(R.anim.in_from_right, R.anim.keep);
+    }
     /**
      * 回退事件
      *

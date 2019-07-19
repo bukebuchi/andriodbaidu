@@ -1,7 +1,7 @@
-package com.wind.carmanager.utils;
+package com.baidu.track.utils;
 
 import com.google.gson.Gson;
-import com.wind.carmanager.okhttp.callback.IGenericsSerializator;
+import com.baidu.track.okhttp.callback.IGenericsSerializator;
 
 public class JsonGenericsSerializator implements IGenericsSerializator {
 

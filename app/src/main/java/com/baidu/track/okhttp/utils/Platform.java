@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.wind.carmanager.okhttp.utils;
+package com.baidu.track.okhttp.utils;
 
 import android.os.Build;
 import android.os.Handler;

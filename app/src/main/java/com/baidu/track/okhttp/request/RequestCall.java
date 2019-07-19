@@ -1,8 +1,8 @@
-package com.wind.carmanager.okhttp.request;
+package com.baidu.track.okhttp.request;
 
 
-import com.wind.carmanager.okhttp.OkHttpUtils;
-import com.wind.carmanager.okhttp.callback.Callback;
+import com.baidu.track.okhttp.OkHttpUtils;
+import com.baidu.track.okhttp.callback.Callback;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

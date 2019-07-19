@@ -1,4 +1,4 @@
-package com.wind.carmanager.model;
+package com.baidu.track.model;
 
 import java.io.Serializable;
 

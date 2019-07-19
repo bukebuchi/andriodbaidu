@@ -1,8 +1,8 @@
-package com.wind.carmanager.okhttp.request;
+package com.baidu.track.okhttp.request;
 
-import com.wind.carmanager.okhttp.OkHttpUtils;
-import com.wind.carmanager.okhttp.callback.Callback;
-import com.wind.carmanager.okhttp.utils.Exceptions;
+import com.baidu.track.okhttp.OkHttpUtils;
+import com.baidu.track.okhttp.callback.Callback;
+import com.baidu.track.okhttp.utils.Exceptions;
 
 import java.io.File;
 import java.util.Map;

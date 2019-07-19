@@ -42,7 +42,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void turnToMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.in_from_right, R.anim.keep);
         //        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

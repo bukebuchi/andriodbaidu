@@ -1,4 +1,4 @@
-package com.wind.carmanager.okhttp.callback;
+package com.baidu.track.okhttp.callback;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

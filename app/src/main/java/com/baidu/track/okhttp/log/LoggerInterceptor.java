@@ -1,4 +1,4 @@
-package com.wind.carmanager.okhttp.log;
+package com.baidu.track.okhttp.log;
 
 import android.text.TextUtils;
 import android.util.Log;

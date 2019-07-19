@@ -1,4 +1,5 @@
 package com.baidu.track.activity;
+import android.content.Intent;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,19 +18,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.wind.carmanager.R;
-import com.wind.carmanager.dialog.LoadingDialog;
-import com.wind.carmanager.model.HttpResponse;
-import com.wind.carmanager.model.LoginnewBean;
-import com.wind.carmanager.okhttp.OkHttpUtils;
-import com.wind.carmanager.okhttp.api.Api;
-import com.wind.carmanager.okhttp.callback.GenericsCallback;
-import com.wind.carmanager.okhttp.service.GetCodeRequest;
-import com.wind.carmanager.okhttp.service.LoginRequest;
-import com.wind.carmanager.utils.BaseInfoSPUtil;
-import com.wind.carmanager.utils.CheckUtils;
-import com.wind.carmanager.utils.JsonGenericsSerializator;
-import com.wind.carmanager.utils.NetUtil;
+import com.baidu.track.R;
+import com.baidu.track.model.HttpResponse;
+import com.baidu.track.model.LoginnewBean;
+import com.baidu.track.okhttp.OkHttpUtils;
+import com.baidu.track.okhttp.api.Api;
+import com.baidu.track.okhttp.callback.GenericsCallback;
+import com.baidu.track.okhttp.service.GetCodeRequest;
+import com.baidu.track.okhttp.service.LoginRequest;
+import com.baidu.track.utils.BaseInfoSPUtil;
+import com.baidu.track.utils.CheckUtils;
+import com.baidu.track.utils.JsonGenericsSerializator;
+import com.baidu.track.utils.NetUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -81,22 +81,22 @@ public class LoginActivity extends BaseActivity {
     private String mPhoneNum;
     private String mPwd;
     private String mCode;
-    private LoadingDialog mLoadingDialog;
+    //private LoadingDialog mLoadingDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mLoadingDialog = new LoadingDialog(this, R.style.LoadingDialog, "登录中...");
+        //mLoadingDialog = new LoadingDialog(this, R.style.LoadingDialog, "登录中...");
         initView();
-        initAnimation();
+        //initAnimation();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         //获取手机号码
-        mEtPhone.setText(BaseInfoSPUtil.getInstance().getUserPhoneNum(this));
+        //mEtPhone.setText(BaseInfoSPUtil.getInstance().getUserPhoneNum(this));
     }
 
     private void initView() {
@@ -129,12 +129,12 @@ public class LoginActivity extends BaseActivity {
                 }
                 break;
             case R.id.tv_forget_pwd:
-                hideInputMethod();
-                openActivity(ForgetPwdActivity.class);
+              hideInputMethod();
+//               openActivity(ForgetPwdActivity.class);
                 break;
             case R.id.tv_register:
-                hideInputMethod();
-                openActivity(RegisterActivity.class);
+             hideInputMethod();
+  //            openActivity(RegisterActivity.class);
                 break;
             case R.id.btn_code:
                 hideInputMethod();
@@ -150,7 +150,7 @@ public class LoginActivity extends BaseActivity {
         mPhoneNum = mEtPhone.getText().toString();
         mPwd = mEtPwd.getText().toString();
         mCode = mEtCode.getText().toString();
-
+        showToast("login");
         if (TextUtils.isEmpty(mPhoneNum)) {
             showToast(getString(R.string.et_input_phone));
             return;
@@ -218,7 +218,7 @@ public class LoginActivity extends BaseActivity {
      * 密码或验证码请求登录
      **/
     private void requestLogin() {
-        mLoadingDialog.show();
+       // mLoadingDialog.show();
         LoginRequest bean = new LoginRequest();
         bean.setPhone(mPhoneNum);
         if (isLoginCode) {
@@ -236,7 +236,7 @@ public class LoginActivity extends BaseActivity {
                 .execute(new GenericsCallback<LoginnewBean>(new JsonGenericsSerializator()) {
                     @Override
                     public void onError(Call call, Exception e, int id, int code) {
-                        mLoadingDialog.dismiss();
+                     //   mLoadingDialog.dismiss();
                         if (!NetUtil.isNetworkAvailable(LoginActivity.this)) {
                             showToast(getResources().getString(R.string.isNetWork));
                         }
@@ -260,7 +260,7 @@ public class LoginActivity extends BaseActivity {
                         } else if (mCode !=1) {
                             showToast("缺少密码和手机验证码");
                         }
-                        mLoadingDialog.dismiss();
+                        //mLoadingDialog.dismiss();
                     }
                 });
     }
@@ -356,5 +356,9 @@ public class LoginActivity extends BaseActivity {
 
             }
         });
+    }
+    @Override
+    protected int getContentViewId() {
+        return R.layout.activity_login;
     }
 }

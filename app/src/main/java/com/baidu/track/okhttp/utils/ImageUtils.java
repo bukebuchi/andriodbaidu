@@ -1,4 +1,4 @@
-package com.wind.carmanager.okhttp.utils;
+package com.baidu.track.okhttp.utils;
 
 import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;

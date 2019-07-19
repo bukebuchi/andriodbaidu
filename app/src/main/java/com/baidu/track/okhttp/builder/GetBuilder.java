@@ -1,8 +1,9 @@
-package com.wind.carmanager.okhttp.builder;
+package com.baidu.track.okhttp.builder;
 
 import android.net.Uri;
-import com.wind.carmanager.okhttp.request.GetRequest;
-import com.wind.carmanager.okhttp.request.RequestCall;
+
+import com.baidu.track.okhttp.request.GetRequest;
+import com.baidu.track.okhttp.request.RequestCall;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
