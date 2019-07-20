@@ -7,7 +7,12 @@
     <!--<uses-sdk-->
             <!--android:minSdkVersion="11"-->
             <!--android:targetSdkVersion="23"/>-->
-
+    <!-- Required -->
+    <permission
+        android:name="com.baidu.track.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature"/>
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
