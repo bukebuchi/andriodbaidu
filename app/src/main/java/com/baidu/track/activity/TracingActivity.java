@@ -16,8 +16,21 @@ import android.provider.Settings;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.trace.api.entity.OnEntityListener;
 import com.baidu.trace.api.fence.FenceAlarmPushInfo;
@@ -80,6 +93,11 @@ public class TracingActivity extends BaseActivity implements View.OnClickListene
      * Entity监听器(用于接收实时定位回调)
      */
     private OnEntityListener entityListener = null;
+    /*
+    增加定位上报
+     */
+    public LocationClient mLocationClient = null;
+    private MyLocationListener myListener = new MyLocationListener();
 
     /**
      * 实时定位任务
@@ -124,6 +142,21 @@ public class TracingActivity extends BaseActivity implements View.OnClickListene
         setGatherBtnStyle();
 
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mLocationClient = new LocationClient(getApplicationContext());
+        mLocationClient.registerLocationListener(myListener);
+        LocationClientOption option = new LocationClientOption();
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+        option.setCoorType("bd09ll");
+        option.setScanSpan(1000);
+        option.setOpenGps(true);
+        option.setLocationNotify(true);
+        option.setIgnoreKillProcess(true);
+        option.SetIgnoreCacheException(false);
+        option.setWifiCacheTimeOut(5*60*1000);
+        option.setEnableSimulateGps(false);
+        option.setIsNeedAddress(true);
+        option.setIsNeedLocationDescribe(true);
+        mLocationClient.setLocOption(option);
     }
 
     @Override
@@ -163,7 +196,9 @@ public class TracingActivity extends BaseActivity implements View.OnClickListene
         }
 
     }
-
+    private void show(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
     /**
      * 设置服务按钮样式
      */
@@ -221,6 +256,36 @@ public class TracingActivity extends BaseActivity implements View.OnClickListene
         }
     }
 
+    public class MyLocationListener extends BDAbstractLocationListener{
+        @Override
+        public void onReceiveLocation(BDLocation location){
+            //此处的BDLocation为定位结果信息类，通过它的各种get方法可获取定位相关的全部结果
+            //以下只列举部分获取经纬度相关（常用）的结果信息
+            //更多结果信息获取说明，请参照类参考中BDLocation类中的说明
+
+            double latitude = location.getLatitude();    //获取纬度信息
+            double longitude = location.getLongitude();    //获取经度信息
+            float radius = location.getRadius();    //获取定位精度，默认值为0.0f
+
+            String coorType = location.getCoorType();
+            //获取经纬度坐标类型，以LocationClientOption中设置过的坐标类型为准
+
+            int errorCode = location.getLocType();
+            //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
+            String addr = location.getAddrStr();    //获取详细地址信息
+            String country = location.getCountry();    //获取国家
+            show("国家");
+            show("country");
+            String province = location.getProvince();    //获取省份
+            show(province);
+            String city = location.getCity();    //获取城市
+            show(city);
+            String district = location.getDistrict();    //获取区县
+            show(district);
+            String street = location.getStreet();    //获取街道信息
+            show(street);
+        }
+    }
     /**
      * 实时定位任务
      *
